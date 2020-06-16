@@ -1,0 +1,28 @@
+docker-compose up --build
+
+docker-compose up -d    
+
+docker-compose up
+
+docker-compose down  
+
+docker run -it 93b851f07726 npm run test
+
+docker build -f Dockerfile.dev .  
+
+
+docker run -p 3000:3000 -v /app/node_modules  -v $(pwd):/app f3895b219e68
+
+docker ps  
+
+docker run -p 3000:3000 5cce2a4f705d 
+
+docker attach [container-id]
+
+docker exec -it [container-id] sh
+
+NGINX
+
+docker build .  
+
+docker run -p 8080:80 [container id]
