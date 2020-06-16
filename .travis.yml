@@ -3,8 +3,18 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t astrego/docker-react -f Dockerfile.dev .
+deploy:
+  provider: gae
+  project: kubernetes-course-279208
+  keyfile: kubernetes-course-279208-8fe4d4dd3172.json
+  verbosity: debug
+  on:
+    branch: master
 
+before_install:
+  - openssl aes-256-cbc -K $encrypted_3d0a666251b9_key -iv $encrypted_3d0a666251b9_iv
+    -in kubernetes-course-279208-8fe4d4dd3172.json.enc -out kubernetes-course-279208-8fe4d4dd3172.json
+    -d
+  - docker build -t astrego/docker-react -f Dockerfile.dev .
 script:
   - docker run -e CI=true astrego/docker-react npm run test
